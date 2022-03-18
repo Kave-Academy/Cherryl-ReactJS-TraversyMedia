@@ -2,6 +2,8 @@ import {useState} from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
+import Footer from './components/Footer'
+import About from './components/About'
 
 
 
@@ -53,12 +55,10 @@ const App =() => {
   return (
     <div className="container">
       <Header 
-      onAdd={() => setShowAddTask(!showAddTask)}
-      showAdd={showAddTask}
+        onAdd={() => setShowAddTask(!showAddTask)}
+        showAdd={showAddTask}
       />
-      {showAddTask && <AddTask 
-        onAdd={addTask}
-      />}
+      {showAddTask && <AddTask onAdd={addTask}/>}
         {tasks.length > 0 ? 
         <Tasks 
           tasks={tasks} 
@@ -66,6 +66,7 @@ const App =() => {
           onToggle={toggleReminder}
         /> 
         : "No Tasks to Show"}
+        <Footer/>
     </div>
     
   );
